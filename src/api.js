@@ -2,8 +2,8 @@ import axios from 'axios'
 
 export default () => {
   return axios.create({
-    basURL: 'https://orgnova.concore.io/pokemon/',
-    timeout: 1000,
+    baseURL: 'https://orgnova.concore.io',
+    timeout: 5000,
     headers: {
       'Accept': 'application/json'
     }
