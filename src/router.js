@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home.vue'
+//import Home from '@/views/Home.vue'
+import PokemonListComponent from '@/components/PokemonListComponent'
+import PokemonInfoComponent from '@/components/PokemonInfoComponent'
 
 Vue.use(Router)
 
@@ -9,8 +11,12 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [   
     {
-      path: '/',
-      component: Home
+      path: '/listar',
+      component: PokemonListComponent
+    },
+    {
+      path: '/info/:id',
+      component: PokemonInfoComponent
     }
   ]
 })

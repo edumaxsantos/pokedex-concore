@@ -2,7 +2,8 @@
   <div>
     <ul>
       <li v-for="pokemon of pokemonList" :key="pokemon.pokedex_entry">
-        {{pokemon.pokedex_entry}} - {{pokemon.id}}</li>
+        <router-link v-bind:to="'/info/'+pokemon.id">{{pokemon.pokedex_entry}} - {{pokemon.id}}</router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -13,21 +14,25 @@ export default {
     name: 'PokemonListComponent',
     data() {
       return {
-        pokemonList: []
+        pokemonList: this.$store.getters.getPokemonList
       }
     },
     methods: {
       async getPokemonList() {
-        const response = await PokemonService.getPokemonList()
-        this.pokemonList = response.data
-        console.log(this.pokemonList)
+        if (this.$store.getters.getPokemonList.length == 0) {
+          const response = await PokemonService.getPokemonList()
+          this.$store.dispatch('savePokemonList', response.data)
+        }
+        
       }
     },
     mounted() {
-      this.getPokemonList()
+        this.getPokemonList()
     }
 }
 </script>
 <style scoped>
-
+li {
+  list-style: none;
+}
 </style>
