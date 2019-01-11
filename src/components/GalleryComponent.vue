@@ -4,7 +4,7 @@
       <img :src="imageSelected">
     </figure>
     <div class="my-columns">
-      <figure class="image is-64x64" v-for="image of listImage" :key="listImage.indexOf(image)">
+      <figure class="image is-64x64" v-for="image of listImage" :key="image">
         <img class="is-rounded" :src="image" @mouseover="imgIndex=listImage.indexOf(image)">
       </figure>
     </div>
@@ -28,7 +28,10 @@ export default {
   },
   computed: {
     listImage() {
-      return Object.values(this.pokemonSprites).filter(key => key !== null) 
+      let possibleKeys = ["front_default", "back_default", "front_female", "back_female", "front_shiny", "back_shiny", "front_shiny_female", "back_shiny_female"]
+      return possibleKeys.map(key => {
+        return this.pokemonSprites[key]
+      }).filter(key => key !== null)
     },
     imageSelected() {
       return this.listImage[this.imgIndex]
