@@ -3,7 +3,7 @@
     <h1>#{{basicInfo.id}} - {{basicInfo.name}}</h1>
     <div>
       <h4>Basic info</h4>
-      <p> Type(s): <span v-for="type of basicInfo.types" :key="type" :class="['tag', type]">{{type}}</span></p>
+      <p> Type(s): <span v-for="type of basicInfo.types" :key="type" :class="['tag', type]">{{type.toUpperCase()}}</span></p>
       <p>Weight: {{basicInfo.weight / 10}} kg</p>
       <p>Height: {{basicInfo.height / 10}} m</p>
       <p>Base Experience: {{basicInfo.base_experience}}</p>
