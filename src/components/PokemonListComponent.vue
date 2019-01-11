@@ -4,8 +4,8 @@
       <router-link v-for="pokemon of pokemonList" 
       :key="pokemon.pokedex_entry" 
       class="column is-one-third my-box"
-      :to="'/info/'+pokemon.id">
-        <div>{{pokemon.pokedex_entry}} - {{capitalName(pokemon.id)}}</div>
+      :to="{name: 'Info', params: {pokemonId: pokemon.id}}">
+        <div>{{pokemon.pokedex_entry}} - {{pokemon.id[0].toUpperCase() + pokemon.id.slice(1)}}</div>
       </router-link>
       <!--div v-for="pokemon of pokemonList" :key="pokemon.pokedex_entry" class="column is-one-third my-box">
           <router-link v-bind:to="'/info/'+pokemon.id"><div>{{pokemon.pokedex_entry}} - {{pokemon.id[0].toUpperCase() + pokemon.id.slice(1)}}</div></router-link>
