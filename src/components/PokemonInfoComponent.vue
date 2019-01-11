@@ -75,8 +75,10 @@ export default {
 
     },
     subMyPokemon() {
-      this.myPokemonCount--
-      this.updateLocalStorage()
+      if(this.myPokemonCount > 0) {
+        this.myPokemonCount--
+        this.updateLocalStorage()
+      }
     },
     getMyPokemonCount() {
       const myPokemon = JSON.parse(localStorage.getItem('myPokemon'))
