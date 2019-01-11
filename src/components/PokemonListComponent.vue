@@ -1,10 +1,17 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="pokemon of pokemonList" :key="pokemon.pokedex_entry">
-        <router-link v-bind:to="'/info/'+pokemon.id">{{pokemon.pokedex_entry}} - {{pokemon.id}}</router-link>
-      </li>
-    </ul>
+  <div class="container">
+    <div class="columns is-multiline ">
+      <router-link v-for="pokemon of pokemonList" 
+      :key="pokemon.pokedex_entry" 
+      class="column is-one-third my-box"
+      :to="'/info/'+pokemon.id">
+        <div>{{pokemon.pokedex_entry}} - {{pokemon.id[0].toUpperCase() + pokemon.id.slice(1)}}</div>
+      </router-link>
+      <!--div v-for="pokemon of pokemonList" :key="pokemon.pokedex_entry" class="column is-one-third my-box">
+          <router-link v-bind:to="'/info/'+pokemon.id"><div>{{pokemon.pokedex_entry}} - {{pokemon.id[0].toUpperCase() + pokemon.id.slice(1)}}</div></router-link>
+      </div-->
+    </div>
+      
   </div>
 </template>
 
@@ -38,7 +45,17 @@ export default {
 }
 </script>
 <style scoped>
-li {
-  list-style: none;
+
+.my-box {
+  border-radius: 6px;
+}
+
+.columns {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.my-box:hover {
+  background-color:#3273dc;
 }
 </style>
