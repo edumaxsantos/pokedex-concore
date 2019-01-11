@@ -60,7 +60,7 @@ export default {
         types: this.pokemonInfo.types,
         weight: this.pokemonInfo.weight,
         height: this.pokemonInfo.height,
-        base_experience: this.pokemonInfo.basic_experience
+        base_experience: this.pokemonInfo.base_experience
       }
     }
   },
