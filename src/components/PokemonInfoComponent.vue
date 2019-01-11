@@ -1,9 +1,7 @@
 <template>
   <div>
-    <div v-if="loading">
-      Carregando
-    </div>
-    <div v-else class="container">
+    <b-loading :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="true"></b-loading>
+    <div v-if="!isLoading" class="container">
       <gallery-component :pokemonSprites="pokemonInfo.sprites"/>
       <div class="content">
         <div class="header">
@@ -32,7 +30,8 @@ export default {
   name: 'PokemonInfoComponent',
   data() {
     return {
-      loading: false,
+      isLoading: false,
+      isFullPage: true
     }
   },
   computed: {
@@ -53,15 +52,15 @@ export default {
   },
   methods: {
     async getPokemonInfo(pokemonId) {
-      this.loading = true
+      this.isLoading = true
       return await PokemonService.getPokemonInfo(pokemonId)
     }
   },
   mounted() {
     this.getPokemonInfo(this.$route.params.pokemonId).then(response => {
       console.log(response)
+      this.isLoading = false
       this.$store.dispatch('savePokemonInfo', response.data)
-      this.loading = false
     }).catch(error => {
       alert('Unable to get data from API. ' + error)
       console.log(error)

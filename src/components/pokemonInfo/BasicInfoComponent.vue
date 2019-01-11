@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1>#{{basicInfo.id}} - {{basicInfo.name}}</h1>
     <div>
       <h4>Basic info</h4>
@@ -19,6 +19,12 @@ export default {
 </script>
 
 <style scoped>
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .tag {
   color: white;
