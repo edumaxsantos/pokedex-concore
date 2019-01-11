@@ -17,6 +17,9 @@ export default new Router({
     {
       path: '/info/:id',
       component: PokemonInfoComponent
+    },
+    {
+      path: '*'
     }
   ]
 })
