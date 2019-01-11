@@ -18,8 +18,7 @@ export default new Vuex.Store({
       sprites: {},
       types: [],
       weight: 0
-    },
-    myPokemon: {}
+    }
   },
   mutations: {
     savePokemonList(state, list) {
@@ -27,25 +26,6 @@ export default new Vuex.Store({
     },
     savePokemonInfo(state, info) {
       state.pokemonInfo = info
-    },
-    addMyPokemon(state, pokemonId) {
-      if(pokemonId in state.myPokemon) 
-        state.myPokemon[pokemondId]++
-      else
-        state.myPokemon[pokemondId] = 1
-      
-      localStorage.setItem('myPokemon', JSON.stringify(state.myPokemon))
-    },
-    subMyPokemon(state, pokemonId) {
-      if(pokemonId in state.myPokemon) 
-        state.myPokemon[pokemonId]--
-      else
-        state.myPokemon[pokemonId] = 0
-
-      localStorage.setItem('myPokemon', JSON.stringify(state.myPokemon))
-    },
-    updateMyPokemon(state) {
-      state.myPokemon = JSON.parse(localStorage.getItem('myPokemon'))
     }
   },
   actions: {
@@ -54,12 +34,6 @@ export default new Vuex.Store({
     },
     savePokemonInfo(context, info) {
       context.commit('savePokemonInfo', info)
-    },
-    addMyPokemon(context, pokemonId) {
-      context.commit('addMyPokemon', pokemonId)
-    },
-    subMyPokemon(context, pokemonId) {
-      context.commit('subMyPokemon', pokemonId)
     }
   }
 })

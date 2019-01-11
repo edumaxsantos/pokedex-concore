@@ -8,9 +8,6 @@
       :to="{name: 'Info', params: {pokemonId: pokemon.id}}">
         <div>{{pokemon.pokedex_entry}} - {{pokemon.id[0].toUpperCase() + pokemon.id.slice(1)}}</div>
       </router-link>
-      <!--div v-for="pokemon of pokemonList" :key="pokemon.pokedex_entry" class="column is-one-third my-box">
-          <router-link v-bind:to="'/info/'+pokemon.id"><div>{{pokemon.pokedex_entry}} - {{pokemon.id[0].toUpperCase() + pokemon.id.slice(1)}}</div></router-link>
-      </div-->
     </div>
       
   </div>
@@ -35,16 +32,21 @@ export default {
       async getPokemonList() {
         this.isLoading = true
         return await PokemonService.getPokemonList()
+      },
+      createLocalStorage() {
+        if(localStorage.getItem('myPokemon') === null)
+          localStorage.setItem('myPokemon', JSON.stringify({}))
       }
     },
     mounted() {
-        this.getPokemonList().then(response => {
-          this.isLoading = false
-          this.$store.dispatch('savePokemonList', response.data)
-        }).catch(error => {
-          alert('Unable to get data from API. ' + error)
-          console.log(error)
-        })
+      this.getPokemonList().then(response => {
+        this.isLoading = false
+        this.$store.dispatch('savePokemonList', response.data)
+        this.createLocalStorage()
+      }).catch(error => {
+        alert('Unable to get data from API. ' + error)
+        console.log(error)
+      })
     }
 }
 </script>

@@ -12,6 +12,7 @@ export default new Router({
   routes: [   
     {
       path: '/listar',
+      name: 'listar',
       component: PokemonListComponent
     },
     {
@@ -20,7 +21,8 @@ export default new Router({
       component: PokemonInfoComponent
     },
     {
-      path: '*'
+      path: '*',
+      redirect: {name: 'listar'}
     }
   ]
 })
