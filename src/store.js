@@ -5,16 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    pokemonList: []
+    pokemonList: [],
+    pokemonInfo: {}
   },
   mutations: {
     savePokemonList(state, list) {
       state.pokemonList = list
+    },
+    savePokemonInfo(state, info) {
+      state.pokemonInfo = info
     }
   },
   actions: {
     savePokemonList(context, list) {
       context.commit('savePokemonList', list)
+    },
+    savePokemonInfo(context, info) {
+      context.commit('savePokemonInfo', info)
     }
   }
 })
