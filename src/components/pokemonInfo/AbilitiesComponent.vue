@@ -14,8 +14,8 @@
           <div class="card" v-for="ability of abilities" :key="abilities.indexOf(ability)">
             <b-collapse class="card" :open="false">
               <div slot="trigger" slot-scope="props" class="card-header">
-                <p class="card-header-title">
-                  {{ability.name}}
+                <p class="card-header-title is-centered">
+                  <i>{{ability.name}}</i>
                 </p>
                 <a class="card-header-icon">
                   <b-icon
@@ -25,7 +25,7 @@
               </div>
               <div class="card-content">
                 <div class="content">
-                  <p>{{ability.text}}</p>
+                  <p><i>{{ability.text}}</i></p>
               <p><b>Short Effect:</b> {{ability.short_effect}}</p>
               <p><b>Effect:</b> {{ability.effect}}</p>
                 </div>
