@@ -6,7 +6,19 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     pokemonList: [],
-    pokemonInfo: {}
+    pokemonInfo: {
+      abilities: [],
+      base_experience: 0,
+      height: 0,
+      id: 0,
+      is_default: false,
+      moves: [],
+      name: '',
+      order: 0,
+      sprites: {},
+      types: [],
+      weight: 0
+    }
   },
   mutations: {
     savePokemonList(state, list) {
