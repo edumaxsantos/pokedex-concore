@@ -1,6 +1,6 @@
 <template>
-  <div class="box">
-    <b-collapse class="box" :open="false">
+  <div>
+    <b-collapse class="card" :open="false">
       <div slot="trigger" slot-scope="props" class="card-header">
         <h4 class="card-header-title">Abilities</h4>
         <a class="card-header-icon">
@@ -46,7 +46,4 @@ export default {
 }
 </script>
 <style scoped>
-  .hide {
-    display: none;
-  }
 </style>
