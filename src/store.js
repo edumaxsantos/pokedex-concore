@@ -16,10 +16,5 @@ export default new Vuex.Store({
     savePokemonList(context, list) {
       context.commit('savePokemonList', list)
     }
-  },
-  getters: {
-    getPokemonList(state) {
-      return state.pokemonList
-    }
   }
 })

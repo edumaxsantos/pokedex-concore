@@ -14,20 +14,26 @@ export default {
     name: 'PokemonListComponent',
     data() {
       return {
-        pokemonList: this.$store.getters.getPokemonList
+        
+      }
+    },
+    computed: {
+      pokemonList() {
+        return this.$store.state.pokemonList
       }
     },
     methods: {
       async getPokemonList() {
-        if (this.$store.getters.getPokemonList.length == 0) {
-          const response = await PokemonService.getPokemonList()
-          this.$store.dispatch('savePokemonList', response.data)
-        }
-        
+        return await PokemonService.getPokemonList()
       }
     },
     mounted() {
-        this.getPokemonList()
+        this.getPokemonList().then(response => {
+          this.$store.dispatch('savePokemonList', response.data)
+        }).catch(error => {
+          alert('Unable to get data from API. ' + error)
+          console.log(error)
+        })
     }
 }
 </script>
