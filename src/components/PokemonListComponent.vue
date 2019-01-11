@@ -17,7 +17,6 @@
 
 <script>
 import PokemonService from '@/services/PokemonService'
-import capitalName from '@/capitalName'
 export default {
     name: 'PokemonListComponent',
     data() {
@@ -33,9 +32,6 @@ export default {
     methods: {
       async getPokemonList() {
         return await PokemonService.getPokemonList()
-      },
-      capitalName(word) {
-        return capitalName(word)
       }
     },
     mounted() {
