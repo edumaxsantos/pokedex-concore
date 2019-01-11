@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <b-loading :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="true"></b-loading>
-    <div class="columns is-multiline ">
+    <b-loading :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="true"/>
+    <div class="columns is-multiline">
       <router-link v-for="pokemon of pokemonList" 
       :key="pokemon.pokedex_entry" 
       class="column is-one-third my-box"
@@ -54,6 +54,7 @@ export default {
 
 .my-box {
   border-radius: 6px;
+  text-align: center;
 }
 
 .columns {
