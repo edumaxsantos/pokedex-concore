@@ -1,4 +1,5 @@
 # pokedex-concore
+Desafio técnico para entrevista de emprego na Concore.io
 
 ## Project setup
 ```
